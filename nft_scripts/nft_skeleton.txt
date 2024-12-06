@@ -1,0 +1,46 @@
+flush ruleset
+
+define ports = {ssh}
+
+# Tabella famiglia “inet” ossia “ip, ip4, ip6”
+
+table ip  portknock{
+
+        set accessi_default_ipv4 {
+                typeof ip saddr
+                flags interval
+                elements = { 5.158.68.136/29 }
+        }
+
+        set knockers_ipv4 {
+                type ipv4_addr . inet_service
+                flags timeout
+        }
+
+        set approvati_ipv4 {
+                type ipv4_addr
+                flags timeout
+        }
+
+
+        chain input {
+        
+        # The policy of this filter is 'ACCEPT' so all packets what are not dropped here
+        # can be filtered later by lower priority filters (e.g. iptables),
+        # SO WARNING !!
+        # If 'next-in-priority' filter is using 'DROP' default policy all things 
+        # non dropped here will be dropped there ! Keep an eye 
+
+        type filter hook input priority -10; policy accept;
+
+        iifname "lo" return
+
+        tcp dport $ports ct state established,related accept
+        tcp dport $ports ip saddr @approvati_ipv4  accept
+        tcp dport $ports ip saddr @accessi_default_ipv4  accept
+        tcp dport $ports reject with tcp reset
+
+        #
+        # Implementazione meccanismo di knocking
+        #
+
