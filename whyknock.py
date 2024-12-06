@@ -267,7 +267,5 @@ if __name__ == "__main__":
         print('ERROR: Password MUST BE EXACTLY 32 chars long. Quitting\n')
         sys.exit(0)
 
-    print(cfg_full_path)
-    print(nft_full_path)
     read_profile( target_host, passwd)
     sys.exit(0)
