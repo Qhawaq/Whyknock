@@ -7,7 +7,7 @@
 
 
 __author__ = "Mariano 'Qhawaq' Mancini"
-__copyright__ = "Copyright 2024, The Cogent Project"
+__copyright__ = "Copyright 2024, Mariano 'Qhawaq' Mancini IQF International"
 __credits__ = ["tamiko-43-1.org", "wiki.nftables.org"]
 __license__ = "GPL"
 __version__ = "1.0.0"
