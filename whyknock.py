@@ -1,3 +1,5 @@
+#!/usr/bin/python3 
+
 """ whyknock.py 
 
     A knocker program :)

@@ -2,8 +2,6 @@ flush ruleset
 
 define ports = {ssh}
 
-# Tabella famiglia “inet” ossia “ip, ip4, ip6”
-
 table ip  portknock{
 
         set accessi_default_ipv4 {
@@ -41,7 +39,7 @@ table ip  portknock{
         tcp dport $ports reject with tcp reset
 
         #
-        # Implementazione meccanismo di knocking
+        # Knocking implementation
         #
 
 	udp length 264 @ih,1336,104 0xa86f02edb9a38738fd3bcba2b2 add @knockers_ipv4 {ip saddr . udp sport   timeout 10s}

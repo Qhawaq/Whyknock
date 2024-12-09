@@ -2,9 +2,8 @@ flush ruleset
 
 define ports = {ssh}
 
-# Tabella famiglia “inet” ossia “ip, ip4, ip6”
 
-table ip  portknock{
+table ip  portknock {
 
         set accessi_default_ipv4 {
                 typeof ip saddr
@@ -41,6 +40,6 @@ table ip  portknock{
         tcp dport $ports reject with tcp reset
 
         #
-        # Implementazione meccanismo di knocking
+        # Knocking implementation
         #
 
