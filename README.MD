@@ -1,18 +1,16 @@
-*** WHYKNOCK 
+**WHYKNOCK**
+---
+***A Serviceless port-knocking based on nft tables filter with non deterministic knocking schema.***
+---
 
-A Serviceless port-knocking based on nft tables filter with non deterministic knocking schema.
-
-
-CREDITS 
+**CREDITS** 
 
 This script is based on a previous work made by many authors and communities, in this case 
 you can recover the original work here: https://tamiko.43-1.org/developer/portknock.ruleset
 and here: https://wiki.nftables.org/wiki-nftables/index.php/Port_knocking_example
 
-These credits are 
 
-
-WHAT IS IT PROGRAM FOR ?
+**WHAT IS IT PROGRAM FOR ?**
 
 This program ( script ) creates a set of nft tables rules, in a selectable default directory, to implement 
 a new, non deterministic, firewall-knocking schema. 
@@ -22,7 +20,7 @@ and for this reason the new filter is completely hide to those who use standard 
 It acts before standard firewall frameworks and leaves them to operate as before.
 
 
-WHAT IS MEANT BY "SERVICELESS" ?
+**WHAT IS MEANT BY "SERVICELESS" ?**
 
 From literature, all software for firewall-knocking uses a separate "service" ( or "knocking server") which receive, behind the firewall, the packets forming the knock
 sequence and, when the sequence is valid, it opens the standard firewall used injecting a new rule in it.
@@ -33,7 +31,7 @@ In our case, THERE IS NO separate service to run ! All magic is made by nft tabl
 you will do will be load the rules file ( .nft ) using the command nft. So you have not to fight with service startups sequence, complicated setups, and 
 you don't worry about the unexpected service block and its consequences.  
 
-WHAT IS MEANT BY "NON DTERMINISTIC" ?
+**WHAT IS MEANT BY "NON DETERMINISTIC" ?**
 
 The "firewall knocking" idea is non new at all, many declinations of this idea, during paste years, was produced
 and all of them function in a correct way ( think to the famous "knockd" ecc ... ). 
@@ -49,7 +47,7 @@ every knocking packet contains a key in a random position in the payload space o
 but it also must know the keys and their exact relative position in payload, things that varying at every packet send to targt host.
 
 
-HOW WE USE THIS SOFTWARE ?
+**HOW WE USE THIS SOFTWARE ?**
 
 The thing is ridicolus simple . 
 
@@ -62,7 +60,7 @@ you can set the execute flag of the script with command 'chmod 755 whiknock.py' 
 Stop ( :) )
 
 
-WHAT HAPPENS WHEN THIS SCRIPT RUNS ?
+**WHAT HAPPENS WHEN THIS SCRIPT RUNS ?**
 
 1] The script search for IP address or DNS Name in its .ini file.
 
@@ -79,22 +77,22 @@ you have passed as command line parameter. If you say "Yes", the script prompts 
 When done you are ready to install the filter using the 'nft' command ( Usually 'nft -f <filename.nft>' ).
 Pay attention, please,  when you load it the filter starts immediately !
 
-WHAT ABOUT PASSOWRD COMMAND LINE PARAMETER, WHY IT HAS A 'DEFAULT' IN SCRIPT  ?
+**WHAT ABOUT PASSOWRD COMMAND LINE PARAMETER, WHY IT HAS A 'DEFAULT' IN SCRIPT ?**
 
 The PASSWORD parameter accepts a 32 char ( bytes ) to use as encryption password to protects the "per host" recorded keys in .ini file
 As you can note , a 32 chars password it not so simply to remember so a default is provided in the code of script in order to avoid that 
 you don't take care of this protection, for bother or lazyness, and leave keys unprotected into files ... 
-SO YOU ARE WARMLY INVITED TO CHANGE DEFAULT PASSWORD IN CODE WRITTEN AT LINE 26 ( DFL_PWD ) !!!!!! 
+***SO YOU ARE WARMLY INVITED TO CHANGE DEFAULT PASSWORD IN CODE WRITTEN AT LINE 26 ( DFL_PWD ) !!!!!!***
 
-OF COURSE IS MUCH BETTER YOU USE A DIFFERENT PASSWORD FOR EACH HOST PROFILE YOU CONFIGURE !!! 
-this can be done when invoke the script using '-P' parameters. If you don't use it the default password
+***OF COURSE IS MUCH BETTER YOU USE A DIFFERENT PASSWORD FOR EACH HOST PROFILE YOU CONFIGURE !!!*** 
+This can be done when invoke the script using '-P' parameters. If you don't use it the default password
 wil be used.
-ARE YOU WARNED ABOUT THIS !!!
+***YOU ARE WARNED ABOUT THIS !!!***
 
 
-COMMAND LINE PARAMETERS:
+**COMMAND LINE PARAMETERS:**
 
-We have only one required parameter that is the IP address or DNS name of the target host ( the host that will be "knocked" ),
+We have only one ***required parameter*** that is the ***IP address or DNS name of the target host*** ( the host that will be "knocked" ),
 all other parameters are optional.
 
 
