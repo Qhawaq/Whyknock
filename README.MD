@@ -64,20 +64,20 @@ Stop ( :) )
 
 1] The script search for IP address or DNS Name in its .ini file.
 
-2a] If found a valid profile for the host specified as IP/DNS in the .ini file, it extracts 
-   key informations and number of packet to be used to knocking the hosa and send to it the knock sequence to host and end.
+2a] If it FOUND a valid profile for the host specified as IP/DNS in the .ini file, it extracts 
+   keys informations and numbers of packets to be used to knocking the remote host and send to it the complete knock sequence and simply ends.
    If you try to connect the specified host (e.g. with ssh ) you should be have a 'green light' by target host nft and can work with it. 
 
-2b] If NOT FOUND a valid profile, the script prompt you if you desire to create a new profile for the host specified by IP address or DNS name that
+2b] If it NOT FOUND a valid profile, the script prompt you if you desire to create a new profile for the host specified by IP address or DNS name that
 you have passed as command line parameter. If you say "Yes", the script prompts you, about the number of keys (packets to send) it must create for that host
 
-3] The script creates a file in a separate directory a file named as <IP address>.nft or <DNS Name>.nft and ends normally
+3] The script creates a file in a separate directory a file named as <IP address>.nft or <DNS Name>.nft and ends normally.
 
 4] Now, you must copy the file made in pass 3 in the target host specified.
 When done you are ready to install the filter using the 'nft' command ( Usually 'nft -f <filename.nft>' ).
 Pay attention, please,  when you load it the filter starts immediately !
 
-**WHAT ABOUT PASSOWRD COMMAND LINE PARAMETER, WHY IT HAS A 'DEFAULT' IN SCRIPT ?**
+**WHAT ABOUT PASSWORD COMMAND LINE PARAMETER, WHY IT HAS A 'DEFAULT' IN SCRIPT ?**
 
 The PASSWORD parameter accepts a 32 char ( bytes ) to use as encryption password to protects the "per host" recorded keys in .ini file
 As you can note , a 32 chars password it not so simply to remember so a default is provided in the code of script in order to avoid that 
