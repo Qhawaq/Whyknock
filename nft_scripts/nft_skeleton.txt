@@ -1,5 +1,6 @@
 flush ruleset
 
+# ports to protect (e.g. {ssh, http, https, 222 ... } 
 define ports = {ssh}
 
 
